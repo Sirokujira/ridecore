@@ -34,7 +34,7 @@
 #
 #  Create Date:         Apr 04, 2019
 #  Design Name:         Ultra96v2 Base HW Platform
-#  Module Name:         u96v2_sbc_base.tcl
+#  Module Name:         u96v2_sbc_ridecore.tcl
 #  Project Name:        Ultra96v2 Base HW
 #  Target Devices:      Xilinx Zynq UltraScale+ 3EG
 #  Hardware Boards:     Ultra96v2 Board

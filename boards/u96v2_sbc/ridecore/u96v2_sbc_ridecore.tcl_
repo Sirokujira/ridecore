@@ -33,9 +33,9 @@
 # ----------------------------------------------------------------------------
 #
 #  Create Date:         Apr 04, 2019
-#  Design Name:         Ultra96v2 Base HW Platform
-#  Module Name:         u96v2_sbc_base.tcl
-#  Project Name:        Ultra96v2 Base HW
+#  Design Name:         Ultra96v2 Ridecore HW Platform
+#  Module Name:         u96v2_sbc_ridecore.tcl
+#  Project Name:        Ultra96v2 Ridecore HW
 #  Target Devices:      Xilinx Zynq UltraScale+ 3EG
 #  Hardware Boards:     Ultra96v2 Board
 #
@@ -155,10 +155,10 @@ proc avnet_add_user_io_preset {project projects_folder scriptdir} {
    apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/zynq_ultra_ps_e_0/pl_clk0 (100 MHz)} Clk_slave {Auto} Clk_xbar {Auto} Master {/zynq_ultra_ps_e_0/M_AXI_HPM0_FPD} Slave {/axi_uart16550_0/S_AXI} intc_ip {/ps8_0_axi_periph} master_apm {0}}  [get_bd_intf_pins axi_uart16550_0/S_AXI]
 
    make_bd_pins_external  [get_bd_pins axi_uart16550_0/sin]
-   set_property name ls_mezz_uart0_rx [get_bd_ports sin_0]
+   set_property name TXD [get_bd_ports sin_0]
 
    make_bd_pins_external  [get_bd_pins axi_uart16550_0/sout]
-   set_property name ls_mezz_uart0_tx [get_bd_ports sout_0]
+   set_property name RXD [get_bd_ports sout_0]
 
    create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uart16550:2.0 axi_uart16550_1
 
@@ -318,7 +318,9 @@ proc avnet_add_user_io_preset {project projects_folder scriptdir} {
    set_property -dict [list CONFIG.DIN_WIDTH {30} CONFIG.DIN_TO {10} CONFIG.DIN_FROM {11} CONFIG.DOUT_WIDTH {2}] [get_bd_cells xlslice_6]
    connect_bd_net [get_bd_pins zynq_ultra_ps_e_0/emio_gpio_o] [get_bd_pins xlslice_6/Din]
    make_bd_pins_external  [get_bd_pins xlslice_6/Dout]
-   set_property name hs_mezz_dsi_clk [get_bd_ports Dout_0]
+   #set_property name hs_mezz_dsi_clk [get_bd_ports Dout_0]
+   set_property name CLK_P [get_bd_ports Dout_0]
+   
 
    #
    # Add XLSLICE 7 to the BD, set the XLSLICE properties, connect it to the PS block, make the I/Os external and name them
