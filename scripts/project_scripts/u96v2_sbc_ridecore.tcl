@@ -71,7 +71,8 @@ if {[string match -nocase "yes" $clean]} {
    
    # Set synthesis language for project
    # Can be set to either VHDL or Verilog
-   set synth_lang VHDL
+   #set synth_lang VHDL
+   set synth_lang Verilog
    puts ""
    puts "***** Setting synthesis language for project to ${synth_lang}..."
    set_property target_language ${synth_lang} [current_project]
@@ -146,11 +147,11 @@ if {[string match -nocase "yes" $clean]} {
    make_wrapper -files [get_files ${projects_folder}/${board}_${project}.srcs/sources_1/bd/${board}_${project}/${board}_${project}.bd] -top
    # Fetch the synthesis language setting for the project and add the corresponding file to the project
    # The synthesis language can be set to either VHDL (<>.vhd file) or Verilog (<>.v file)
-   if { {VHDL} == [get_property target_language [current_project]] } {
-      add_files -norecurse ${projects_folder}/${board}_${project}.srcs/sources_1/bd/${board}_${project}/hdl/${board}_${project}_wrapper.vhd
-   } else {
-      add_files -norecurse ${projects_folder}/${board}_${project}.srcs/sources_1/bd/${board}_${project}/hdl/${board}_${project}_wrapper.v
-   }
+   #if { {VHDL} == [get_property target_language [current_project]] } {
+   #   add_files -norecurse ${projects_folder}/${board}_${project}.srcs/sources_1/bd/${board}_${project}/hdl/${board}_${project}_wrapper.vhd
+   #} else {
+   #   add_files -norecurse ${projects_folder}/${board}_${project}.srcs/sources_1/bd/${board}_${project}/hdl/${board}_${project}_wrapper.v
+   #}
    add_files -norecurse ../src/fpga/alloc_issue_ino.v ../src/fpga/alu.v ../src/fpga/alu_ops.vh ../src/fpga/arf.v ../src/fpga/brimm_gen.v ../src/fpga/btb.v ../src/fpga/constants.vh ../src/fpga/decoder.v ../src/fpga/define.v ../src/fpga/dmem.v ../src/fpga/dualport_ram.v ../src/fpga/exunit_alu.v ../src/fpga/exunit_branch.v ../src/fpga/exunit_ldst.v ../src/fpga/exunit_mul.v ../src/fpga/gshare.v ../src/fpga/imem.v ../src/fpga/imem_outa.v ../src/fpga/imm_gen.v ../src/fpga/mpft.v ../src/fpga/multiplier.v ../src/fpga/oldest_finder.v ../src/fpga/pipeline.v ../src/fpga/pipeline_if.v ../src/fpga/prioenc.v ../src/fpga/ram_sync.v ../src/fpga/ram_sync_nolatch.v ../src/fpga/reorderbuf.v ../src/fpga/rrf.v ../src/fpga/rrf_freelistmanager.v ../src/fpga/rs_alu.v ../src/fpga/rs_branch.v ../src/fpga/rs_ldst.v ../src/fpga/rs_mul.v ../src/fpga/rs_reqgen.v ../src/fpga/rv32_opcodes.vh ../src/fpga/search_be.v ../src/fpga/src_manager.v ../src/fpga/srcopr_manager.v ../src/fpga/srcsel.v ../src/fpga/storebuf.v ../src/fpga/system.v ../src/fpga/tag_generator.v ../src/fpga/top.v ../src/fpga/uart.v 
    
    # Add Vitis directives
