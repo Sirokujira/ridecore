@@ -368,8 +368,8 @@ proc avnet_add_user_io_preset {project projects_folder scriptdir} {
    #
    # specific to Vitis 2019.2, no longer applicable for Vitis 2020.1
    # reference : https://github.com/Xilinx/Vitis-In-Depth-Tutorial/blob/master/Vitis_Platform_Creation/Introduction/02-Edge-AI-ZCU104/step1.md
-   #create_hier_cell_interrupt_concat [current_bd_instance .] interrupt_concat
-   #connect_bd_net -net interrupt_concat_dout [get_bd_pins axi_intc_0/intr] [get_bd_pins interrupt_concat/dout]
+   create_hier_cell_interrupt_concat [current_bd_instance .] interrupt_concat
+   connect_bd_net -net interrupt_concat_dout [get_bd_pins axi_intc_0/intr] [get_bd_pins interrupt_concat/dout]
    #
    set_property -dict [list CONFIG.NUM_PORTS {6}] [get_bd_cells xlconcat_0]
    connect_bd_net [get_bd_pins xlconcat_0/In5] [get_bd_pins axi_intc_0/irq]
