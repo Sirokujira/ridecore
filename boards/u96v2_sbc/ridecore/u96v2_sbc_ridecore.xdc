@@ -4,9 +4,9 @@
 #set_property IOSTANDARD LVCMOS18 [get_ports ls_mezz_uart*]
 
 #HD_GPIO_2 on FPGA / Connector pin 7
-#set_property PACKAGE_PIN F8 [get_ports ls_mezz_uart0_rx]
+set_property PACKAGE_PIN F8 [get_ports ls_mezz_uart0_rx]
 #HD_GPIO_1 on FPGA / Connector pin 5
-#set_property PACKAGE_PIN F7 [get_ports ls_mezz_uart0_tx]
+set_property PACKAGE_PIN F7 [get_ports ls_mezz_uart0_tx]
 
 #HD_GPIO_5 on FPGA / Connector pin 13
 set_property PACKAGE_PIN G5 [get_ports ls_mezz_uart1_rx]
@@ -142,9 +142,9 @@ set_property PACKAGE_PIN D8 [get_ports {hs_mezz_csi1_mclk[0]}]
 set_property IOSTANDARD LVCMOS12 [get_ports hs_mezz_dsi_clk*]
 
 #DSI_CLK_P on FPGA / Connector pin 21
-#set_property PACKAGE_PIN J5 [get_ports {hs_mezz_dsi_clk[1]}]
+set_property PACKAGE_PIN J5 [get_ports {hs_mezz_dsi_clk[1]}]
 #DSI_CLK_N on FPGA / Connector pin 23
-#set_property PACKAGE_PIN H5 [get_ports {hs_mezz_dsi_clk[0]}]
+set_property PACKAGE_PIN H5 [get_ports {hs_mezz_dsi_clk[0]}]
 set_property VCCAUX_IO DONTCARE [get_ports {CLK_P}]
 set_property IOSTANDARD DIFF_SSTL15 [get_ports {CLK_P}]
 set_property PACKAGE_PIN J5 [get_ports {CLK_P}]

@@ -155,10 +155,12 @@ proc avnet_add_user_io_preset {project projects_folder scriptdir} {
    apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/zynq_ultra_ps_e_0/pl_clk0 (100 MHz)} Clk_slave {Auto} Clk_xbar {Auto} Master {/zynq_ultra_ps_e_0/M_AXI_HPM0_FPD} Slave {/axi_uart16550_0/S_AXI} intc_ip {/ps8_0_axi_periph} master_apm {0}}  [get_bd_intf_pins axi_uart16550_0/S_AXI]
 
    make_bd_pins_external  [get_bd_pins axi_uart16550_0/sin]
-   set_property name ls_mezz_uart0_rx [get_bd_ports sin_0]
+   #set_property name ls_mezz_uart0_rx [get_bd_ports sin_0]
+   set_property name TXD [get_bd_ports sin_0]
 
    make_bd_pins_external  [get_bd_pins axi_uart16550_0/sout]
-   set_property name ls_mezz_uart0_tx [get_bd_ports sout_0]
+   #set_property name ls_mezz_uart0_tx [get_bd_ports sout_0]
+   set_property name RXD [get_bd_ports sout_0]
 
    create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uart16550:2.0 axi_uart16550_1
 
