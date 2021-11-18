@@ -37,7 +37,7 @@
 
 # must be format [4 digit major][period][1 digit minor]
 # i.e. 2020.1
-set required_version 2020.1
+set required_version 2020.2
 # properly set vivado version for secondary check and folder creation
 set vivado_ver [string replace $required_version 4 4 _ ]
 
@@ -396,7 +396,7 @@ switch -nocase $board {
    pz7020_fmc2                -
    pz7015_fmc2                -
    pz7030_fmc2                -
-   u96v2_sbc              -
+   u96v2_sbc                  -
    uz3eg_iocc                 -
    uz3eg_pciec                -
    uz7ev_evcc                 -
